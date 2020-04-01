@@ -1,0 +1,16 @@
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  color: #3482e9;
+  font-size: 1rem;
+  font-weight: bold;
+}

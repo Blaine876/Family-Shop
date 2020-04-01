@@ -9,15 +9,15 @@ const NavigationBar = () => {
     <nav>
       <h3>Family Shop</h3>
       <ul className="nav-links">
-        <Link to="/">
+        <Link className="link" to="/">
           <li>Home</li>
         </Link>
 
-        <Link to="family">
+        <Link className="link" to="family">
           <li>Family</li>
         </Link>
-        <Link to="/profile">
-          <li>Profile</li>
+        <Link className="link" to="/profile">
+          <li className="link"> Profile</li>
         </Link>
       </ul>
     </nav>

@@ -1,11 +1,11 @@
 import React from "react";
 
+import Form from "../Form/Form";
+
+import "./Login.css";
+
 const Login = () => {
-  return (
-    <div>
-      <h1>Login Screen</h1>
-    </div>
-  );
+  return <Form />;
 };
 
 export default Login;

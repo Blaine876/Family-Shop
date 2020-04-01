@@ -14,3 +14,15 @@ nav {
   align-items: center;
   list-style: none;
 }
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  color: yellow;
+}
+.link:active {
+  color: yellow;
+}

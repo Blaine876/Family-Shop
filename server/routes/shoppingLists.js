@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const ShoppingList = require("../model/ShoppingList");
 const verify = require("../validateToken");
-//const User = require("../model/User");
 
+//const User = require("../model/User");
 router.post("/list", verify, async (req, res) => {
   const shoppinglist = new ShoppingList({
     name: req.body.name,

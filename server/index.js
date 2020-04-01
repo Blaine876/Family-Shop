@@ -1,5 +1,7 @@
 const express = require("express");
-const app = express();
+
+const morgan = require("morgan");
+const helmet = require("helmet");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
@@ -9,6 +11,8 @@ const postRoute = require("./routes/posts");
 const shoppingListsRoute = require("./routes/shoppingLists");
 
 require("dotenv").config();
+
+const app = express();
 
 //Connect to DB
 mongoose.connect(
@@ -20,7 +24,13 @@ mongoose.connect(
 );
 
 //Middleware
-app.use(cors());
+app.use(morgan("common"));
+app.use(helmet());
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN
+  })
+);
 app.use(express.json());
 
 //Route Middlewares
