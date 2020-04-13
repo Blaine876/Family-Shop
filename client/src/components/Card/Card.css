@@ -1,6 +1,26 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(47, 47, 47);
+  padding: 1rem;
   margin: 2rem;
+}
+
+.card-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.items-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

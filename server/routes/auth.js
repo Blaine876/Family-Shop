@@ -24,9 +24,10 @@ router.post("/register", async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
   const user = new User({
-    name: req.body.name,
+    username: req.body.username,
     email: req.body.email,
-    password: hashedPassword
+    password: hashedPassword,
+    confirmPassword: req.body.confirmPassword,
   });
   try {
     const savedUser = await user.save();
@@ -35,6 +36,11 @@ router.post("/register", async (req, res) => {
     res.status(400).send(err);
   }
 });
+
+// router.get('/profile:id', (req, res, next) => {
+//   c
+
+// })
 
 router.post("/login", async (req, res) => {
   const { error } = loginValidation(req.body);
