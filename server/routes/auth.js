@@ -38,7 +38,7 @@ router.post("/register", async (req, res) => {
 });
 
 // router.get('/profile:id', (req, res, next) => {
-//   c
+//
 
 // })
 

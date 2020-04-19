@@ -38,7 +38,7 @@ app.use("/api/user/", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/shoppinglists", shoppingListsRoute);
 
-const port = 3000;
+const port = 5000;
 
 app.listen(port, () => {
   console.log(`Server up and running on http://localhost:${port}`);

@@ -1,22 +1,24 @@
 import React, { useContext } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import Dashboard from "./Dashboard/Dashboard";
-import Login from "./Login/Login";
-import Register from "./Register/Register";
-import Family from "./Family/Family";
-import AddShoppingList from "./AddShoppingList/AddShoppingList";
-import Profile from "./Profile/Profile";
-import NavigationBar from "./NavigationBar/NavigationBar";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
-import { AuthContext } from "../context/AuthContext";
+import Dashboard from "./components/Dashboard/Dashboard";
+
+import NavigationBar from "./components/NavigationBar/NavigationBar";
+import Family from "./components/Family/Family";
+import AddShoppingList from "./components/AddShoppingList/AddShoppingList";
+import Profile from "./components/Profile/Profile";
+
+import { AuthContext } from "./context/AuthContext";
 
 const Router = () => {
   const { token } = useContext(AuthContext);
   return (
     <Switch>
       <ProtectedLogin path="/login" token={token} component={Login} />
-      <Route path="/register" component={Register} />
+      <ProtectedLogin path="/register" token={token} component={Register} />
       <ProtectedRoute path="/family" token={token} component={Family} />
       <ProtectedRoute path="/profile" token={token} component={Profile} />
       <ProtectedRoute
@@ -33,14 +35,19 @@ const ProtectedRoute = ({ token, component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={() =>
+      render={({ location }) =>
         token ? (
-          <div>
+          <>
             <NavigationBar />
             <Component />
-          </div>
+          </>
         ) : (
-          <Redirect to="/login" />
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
         )
       }
     />
@@ -51,7 +58,18 @@ const ProtectedLogin = ({ token, component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={() => (!token ? <Component /> : <Redirect to="/dashboard" />)}
+      render={({ location }) =>
+        !token ? (
+          <Component />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/dashboard",
+              state: { from: location },
+            }}
+          />
+        )
+      }
     />
   );
 };

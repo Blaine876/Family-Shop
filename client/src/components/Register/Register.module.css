@@ -6,7 +6,6 @@
 
 body {
   font-family: sans-serif;
-  overflow: hidden;
 }
 
 .container {
@@ -17,6 +16,7 @@ body {
   grid-gap: 7rem;
   padding: 0 2rem;
   background-color: rgb(250, 250, 250);
+  overflow: hidden;
 }
 
 .img {
@@ -29,7 +29,7 @@ body {
   width: 550px;
 }
 
-.login-container {
+.registerContainer {
   display: flex;
   align-items: center;
   text-align: center;
@@ -50,7 +50,7 @@ form h2 {
   color: #333;
 }
 
-.input-div {
+.inputDiv {
   display: grid;
   grid-template-columns: 7% 93%;
   margin: 25px 0;
@@ -58,11 +58,11 @@ form h2 {
   border-bottom: 2px solid #d9d9d9;
 }
 
-.input-box.one {
+.inputDiv.one {
   margin-top: 0;
 }
 
-.input-box.two {
+.inputDiv.two {
   margin-bottom: 4px;
 }
 
@@ -76,12 +76,12 @@ form h2 {
   color: #d9d9d9;
 }
 
-.input-div > div {
+.inputDiv > div {
   position: relative;
   height: 45px;
 }
 
-.input-div > div h5 {
+.inputDiv > div h5 {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -119,7 +119,7 @@ a:hover {
   color: rgb(33, 27, 197);
 }
 
-.btn {
+.btn2 {
   display: block;
   color: #fff;
   font-weight: bold;
@@ -136,6 +136,27 @@ a:hover {
   transition: 0.5s;
 }
 
-.btn:hover {
+.btn1 {
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  margin-top: 57px;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #485f99, #333b94, #22138f);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn1:hover {
+  background-position: right;
+}
+
+.btn2:hover {
   background-position: right;
 }

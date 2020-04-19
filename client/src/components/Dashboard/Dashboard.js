@@ -22,7 +22,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/shoppinglists")
+      .get("http://localhost:5000/api/shoppinglists")
       .then((res) => {
         //console.log(res);
         setItems(res.data);
